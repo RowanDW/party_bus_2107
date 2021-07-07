@@ -28,8 +28,9 @@ describe Bus do
     end
   end
 
-  # Iteration 2
+
   context 'Passengers' do
+    #Iteration 2
     it 'returns a list of passengers' do
       bus = Bus.new('Mikes Awesome Bus', 4)
       bus.add_passenger('Mike')
@@ -39,6 +40,7 @@ describe Bus do
       expect(bus.passengers).to eq(['Mike', 'Megan', 'Tim'])
     end
 
+    #Iteration 2
     it 'returns a list of uppercased names' do
       bus = Bus.new('Mikes Awesome Bus', 4)
       bus.add_passenger('Mike')
@@ -47,9 +49,8 @@ describe Bus do
 
       expect(bus.yell_at_passengers).to eq(['MIKE', 'MEGAN', 'TIM'])
     end
-  end
 
-  context 'Iteration 3' do
+    #Iteration 3
     it 'gives a passenger count' do
       bus = Bus.new('Mikes Awesome Bus', 4)
 
@@ -65,6 +66,7 @@ describe Bus do
       expect(bus.number_of_passengers).to eq(5)
     end
 
+    #Iteration 3
     it 'determines overcapacity' do
       bus = Bus.new('Mikes Awesome Bus', 4)
 
@@ -78,6 +80,25 @@ describe Bus do
       bus.add_passenger('Alice')
 
       expect(bus.over_capacity?).to be true
+    end
+
+    #Iteration 4
+    it 'kicks out passengers' do
+      bus = Bus.new('Mikes Awesome Bus', 4)
+      bus.add_passenger('Mike')
+      bus.add_passenger('Megan')
+      bus.add_passenger('Tim')
+      bus.add_passenger('James')
+      bus.add_passenger('Cat')
+      bus.add_passenger('Alice')
+
+      bus.kick_out
+      expect(bus.passengers).to eq(['Megan', 'Tim', 'James', 'Cat', 'Alice'])
+
+      bus.kick_out
+      bus.kick_out
+
+      expect(bus.passengers).to eq(['James', 'Cat', 'Alice'])
     end
   end
 end

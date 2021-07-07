@@ -18,4 +18,12 @@ class Bus
     end
     uppercase_passengers
   end
+
+  def number_of_passengers
+    @passengers.length
+  end
+
+  def over_capacity?
+    @passengers.length > @capacity
+  end
 end

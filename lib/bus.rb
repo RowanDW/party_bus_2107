@@ -6,4 +6,16 @@ class Bus
     @capacity = capacity
     @passengers = []
   end
+
+  def add_passenger(passenger)
+    @passengers << passenger
+  end
+
+  def yell_at_passengers
+    uppercase_passengers = []
+    @passengers.each do |passenger|
+      uppercase_passengers << passenger.upcase
+    end
+    uppercase_passengers
+  end
 end
